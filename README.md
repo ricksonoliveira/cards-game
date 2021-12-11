@@ -28,3 +28,9 @@ Cards.deal(deck, 5)
 Cards.contains(deck, "King")
 ```
 Obs: *The above will return true or false if the card is contained in the deck.*
+
+It's also possible to save your deck in a file passing the filename wished, and load it back again when wanted:
+```
+Cards.save(deck, "my_deck")
+Cards.load("my_deck")
+```
