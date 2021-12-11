@@ -34,3 +34,8 @@ It's also possible to save your deck in a file passing the filename wished, and 
 Cards.save(deck, "my_deck")
 Cards.load("my_deck")
 ```
+
+Finally, instead of creating a deck, shuffling it and dealing everytime, you can just call the function `create_hand/1` passing the number of the hand and that will return a shuffled dealt hand:
+```
+Cards.create_hand(5)
+```
