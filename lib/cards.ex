@@ -9,8 +9,24 @@ defmodule Cards do
 
   ## Examples
 
-      iex> deck = Cards.create_deck
-      ["Ace of Spades", "Two of Spades", "Three of Spades", "..."]
+      iex> Cards.create_deck()
+      ["Ace of Spades", "Two of Spades", "Three of Spades",
+      "Four of Spades", "Five of Spades", "Six of Spades",
+      "Seven of Spades", "Eight of Spades", "Nine of Spades",
+      "Ten of Spades", "Jack of Spades", "Queen of Spades",
+      "King of Spades", "Ace of Clubs", "Two of Clubs", "Three of Clubs",
+      "Four of Clubs", "Five of Clubs", "Six of Clubs", "Seven of Clubs",
+      "Eight of Clubs", "Nine of Clubs", "Ten of Clubs", "Jack of Clubs",
+      "Queen of Clubs", "King of Clubs", "Ace of Hearts",
+      "Two of Hearts", "Three of Hearts", "Four of Hearts",
+      "Five of Hearts", "Six of Hearts", "Seven of Hearts",
+      "Eight of Hearts", "Nine of Hearts", "Ten of Hearts",
+      "Jack of Hearts", "Queen of Hearts", "King of Hearts",
+      "Ace of Diamonds", "Two of Diamonds", "Three of Diamonds",
+      "Four of Diamonds", "Five of Diamonds", "Six of Diamonds",
+      "Seven of Diamonds", "Eight of Diamonds", "Nine of Diamonds",
+      "Ten of Diamonds", "Jack of Diamonds", "Queen of Diamonds",
+      "King of Diamonds"]
   """
   def create_deck do
     values = [
@@ -40,12 +56,6 @@ defmodule Cards do
   @spec shuffle(deck :: List) :: list
   @doc """
     Shuffles a deck of cards.
-
-  ## Examples
-
-      iex> deck = Cards.create_deck
-      iex> Cards.shuffle(deck)
-      ["King of Hearts", "Two of Diamonds", "Ace of Spades"]
   """
   def shuffle(deck) do
     Enum.shuffle(deck)
@@ -53,11 +63,11 @@ defmodule Cards do
 
   @spec contains?(deck :: List, card :: String) :: boolean
   @doc """
-    Check if a card contains in a deck.
+    Check if a deck contains a given card.
 
   ## Examples
 
-      iex> deck = Cards.create_deck
+      iex> deck = Cards.create_deck()
       iex> Cards.contains?(deck, "Ace of Spades")
       true
   """
@@ -114,8 +124,23 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.load(deck, "my_deck")
-      {:ok, ["King of Hearts", "Two of Diamonds", "Ace of Spades", "..."]}
+      iex> deck = Cards.create_deck()
+      iex> Cards.save(deck, "my_deck")
+      iex> Cards.load("my_deck")
+      ["Ace of Spades", "Two of Spades", "Three of Spades",
+      "Four of Spades", "Five of Spades", "Six of Spades", "Seven of Spades",
+      "Eight of Spades", "Nine of Spades", "Ten of Spades", "Jack of Spades",
+      "Queen of Spades", "King of Spades", "Ace of Clubs", "Two of Clubs",
+      "Three of Clubs", "Four of Clubs", "Five of Clubs", "Six of Clubs",
+      "Seven of Clubs", "Eight of Clubs", "Nine of Clubs", "Ten of Clubs",
+      "Jack of Clubs", "Queen of Clubs", "King of Clubs", "Ace of Hearts",
+      "Two of Hearts", "Three of Hearts", "Four of Hearts", "Five of Hearts",
+      "Six of Hearts", "Seven of Hearts", "Eight of Hearts", "Nine of Hearts",
+      "Ten of Hearts", "Jack of Hearts", "Queen of Hearts", "King of Hearts",
+      "Ace of Diamonds", "Two of Diamonds", "Three of Diamonds", "Four of Diamonds",
+      "Five of Diamonds", "Six of Diamonds", "Seven of Diamonds", "Eight of Diamonds",
+      "Nine of Diamonds", "Ten of Diamonds", "Jack of Diamonds", "Queen of Diamonds",
+      "King of Diamonds"]
   """
   def load(filename) do
     case File.read(filename) do
@@ -127,11 +152,6 @@ defmodule Cards do
   @spec create_hand(hand_size :: integer()) :: list
   @doc """
    Creates a shuffled dealt hand.
-
-  ## Examples
-
-      iex> Cards.create_hand(1)
-      ["Ace of Spades"]
   """
   def create_hand(hand_size) do
     Cards.create_deck
