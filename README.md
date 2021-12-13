@@ -5,6 +5,10 @@ Play the game fully on your command line terminal by typing `iex -S mix` inside 
 
 Use the module `Cards` to play the game.
 
+## Documentation
+
+Documentation for this application is available inside `docs/index.html`. Please open it into your browser to see examples of use.
+
 ## Functions
 
 Create a deck of cards like so:
