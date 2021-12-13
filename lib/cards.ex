@@ -7,10 +7,10 @@ defmodule Cards do
   @doc """
     Creates a deck of cards
 
-    ## Examples
+  ## Examples
 
-        iex> deck = Cards.create_deck
-        ["Ace of Spades", "Two of Spades", "Three of Spades", "..."]
+      iex> deck = Cards.create_deck
+      ["Ace of Spades", "Two of Spades", "Three of Spades", "..."]
   """
   def create_deck do
     values = [
@@ -41,11 +41,11 @@ defmodule Cards do
   @doc """
     Shuffles a deck of cards.
 
-    ## Examples
+  ## Examples
 
-        iex> deck = Cards.create_deck
-        iex> Cards.shuffle(deck)
-        ["King of Hearts", "Two of Diamonds", "Ace of Spades"]
+      iex> deck = Cards.create_deck
+      iex> Cards.shuffle(deck)
+      ["King of Hearts", "Two of Diamonds", "Ace of Spades"]
   """
   def shuffle(deck) do
     Enum.shuffle(deck)
@@ -55,11 +55,11 @@ defmodule Cards do
   @doc """
     Check if a card contains in a deck.
 
-    ## Examples
+  ## Examples
 
-        iex> deck = Cards.create_deck
-        iex> Cards.contains?(deck, "Ace of Spades")
-        true
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -69,12 +69,12 @@ defmodule Cards do
   @doc """
     Deals a hand of card to the player.
 
-    ## Examples
+  ## Examples
 
-        iex> deck = Cards.create_deck
-        iex> {hand, deck} = Cards.deal(deck, 1)
-        iex> hand
-        ["Ace of Spades"]
+      iex> deck = Cards.create_deck
+      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
   """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
@@ -91,11 +91,11 @@ defmodule Cards do
   @doc """
     Saves a deck of cards.
 
-    ## Examples
+  ## Examples
 
-        iex> deck = Cards.create_deck
-        iex> Cards.save(deck, "my_deck")
-        :ok
+      iex> deck = Cards.create_deck
+      iex> Cards.save(deck, "my_deck")
+      :ok
   """
   def save(deck, filename) do
     binary = :erlang.term_to_binary(deck)
@@ -112,10 +112,10 @@ defmodule Cards do
   @doc """
     Loads a file that contains a deck and displays the deck.
 
-    ## Examples
+  ## Examples
 
-        iex> Cards.load(deck, "my_deck")
-        {:ok, ["King of Hearts", "Two of Diamonds", "Ace of Spades", "..."]}
+      iex> Cards.load(deck, "my_deck")
+      {:ok, ["King of Hearts", "Two of Diamonds", "Ace of Spades", "..."]}
   """
   def load(filename) do
     case File.read(filename) do
@@ -128,10 +128,10 @@ defmodule Cards do
   @doc """
    Creates a shuffled dealt hand.
 
-   ## Examples
+  ## Examples
 
-        iex> Cards.create_hand(1)
-        ["Ace of Spades"]
+      iex> Cards.create_hand(1)
+      ["Ace of Spades"]
   """
   def create_hand(hand_size) do
     Cards.create_deck
