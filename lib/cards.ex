@@ -115,7 +115,7 @@ defmodule Cards do
     ## Examples
 
         iex> Cards.load(deck, "my_deck")
-        {:ok. ["King of Hearts", "Two of Diamonds", "Ace of Spades", "..."]}
+        {:ok, ["King of Hearts", "Two of Diamonds", "Ace of Spades", "..."]}
   """
   def load(filename) do
     case File.read(filename) do
